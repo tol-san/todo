@@ -1,4 +1,3 @@
-import React from "react";
 
 const TodoCard = ({ handleDeleteTodo, handleEditeTodo, index, children }) => {
   return (
