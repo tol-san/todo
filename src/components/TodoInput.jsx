@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const TodoInput = () => {
+const TodoInput = ({ handleNewTodo, todoValue, setTodoValue }) => {
+
   return (
-    <div>TodoInput</div>
-  )
-}
+    <header>
+      <input
+        value={todoValue}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") { handleNewTodo(todoValue); setTodoValue('')}
+          
+        }}
+        onChange={(e) => setTodoValue(e.target.value)}
+        type="text"
+        placeholder="Enter todo..."
+      />
+      <button
+        onClick={() => {
+          handleNewTodo(todoValue);
+          setTodoValue("");
+        }}
+      >
+        Add
+      </button>
+    </header>
+  );
+};
 
-export default TodoInput
+export default TodoInput;
